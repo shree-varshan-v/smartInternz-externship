@@ -1,0 +1,234 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <!-- We use a custom world for the rrbot so that the camera angle is launched correctly -->
+
+  <world name="default">
+    <!--include>
+      <uri>model://willowgarage</uri>
+    </include-->
+
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    
+   <!-- Focus camera on tall pendulum -->
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>4.927360 -4.376610 3.740080 0.000000 0.275643 2.356190</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+
+<model name="fire_hydrant">
+    <pose>4.32 0.191 0 0 0 0</pose>
+    <static>true</static>
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+        <mesh>
+            <uri>model://fire_hydrant/meshes/fire_hydrant.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://fire_hydrant/meshes/fire_hydrant.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>   
+
+<model name="person_standing">
+    <pose>-0.146140 4.069 0 0 0 -0.00013</pose>
+    <static>true</static>
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+        <mesh>
+            <uri>model://person_standing/meshes/standing.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://person_standing/meshes/standing.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+<model name="stop_sign">
+    <pose>3 2.954 0 0 0 -1.08</pose>
+    <static>true</static>
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+        <mesh>
+            <uri>model://stop_sign/meshes/stop_sign.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://stop_sign/meshes/stop_sign.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://stop_sign/materials/scripts</uri>
+            <uri>model://stop_sign/materials/textures</uri>
+            <name>StopSign/Diffuse</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+<model name="hatchback_red">
+    <pose>-1.370421 -3.556199 0 0 0 -1.863615</pose>
+    <static>true</static>
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+        <mesh>
+            <uri>model://hatchback_red/meshes/hatchback.obj</uri>
+            <scale>0.01 0.01 0.01</scale>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://hatchback_red/meshes/hatchback.obj</uri>
+          <scale>0.01 0.01 0.01</scale>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+<model name="CONSTRUCTION BARREL">
+    <pose>2.75 -4.37 0 0 0 0</pose>
+    <static>true</static>
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+        <mesh>
+            <uri>model://construction_barrel/meshes/construction_barrel.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://construction_barrel/meshes/construction_barrel.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+<model name="stop_light">
+
+    <static>true</static>
+
+    <!-- this pose can be overriden when including the light on another model -->
+    <pose>-3.052 1.296 1 0 0 1.321406</pose>
+
+    <link name="link">
+
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://stop_light/meshes/stop_light.obj</uri>
+            <scale>0.01 0.01 0.01</scale>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="frame">
+        <geometry>
+          <mesh>
+            <uri>model://stop_light/meshes/stop_light.obj</uri>
+            <scale>0.01 0.01 0.01</scale>
+          </mesh>
+        </geometry>
+      </visual>
+
+      <visual name="red">
+        <pose>-0.001123 -0.082251 -0.147514 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.1012</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://stop_light/materials/scripts/</uri>
+            <uri>model://stop_light/materials/textures/</uri>
+            <name>StopLight/Light</name>
+          </script>
+          <ambient>1 0 0 1</ambient>
+          <specular>1 0 0 1</specular>
+          <!-- Turn a light on by uncommenting emissive -->
+          <!--emissive>1 0 0 1</emissive-->
+        </material>
+      </visual>
+
+      <visual name="yellow">
+        <pose>-0.001123 -0.082251 -0.402 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.1012</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://stop_light/materials/scripts/</uri>
+            <uri>model://stop_light/materials/textures/</uri>
+            <name>StopLight/Light</name>
+          </script>
+          <ambient>1 1 0 1</ambient>
+          <specular>1 1 0 1</specular>
+          <!--emissive>1 1 0 1</emissive-->
+        </material>
+      </visual>
+
+      <visual name="green">
+        <pose>-0.001123 -0.082251 -0.655 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.1012</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://stop_light/materials/scripts/</uri>
+            <uri>model://stop_light/materials/textures/</uri>
+            <name>StopLight/Light</name>
+          </script>
+          <ambient>0 1 0 1</ambient>
+          <specular>0 1 0 1</specular>
+          <!--emissive>0 1 0 1</emissive-->
+        </material>
+      </visual>
+
+    </link>
+  </model>
+
+  </world>
+</sdf>

@@ -1,0 +1,2 @@
+mybot_description:mybot_gazebo:mybot_motion
+-DCATKIN_DEVEL_PREFIX=/home/sv/project_ws/devel -DCMAKE_INSTALL_PREFIX=/home/sv/project_ws/install -G Unix Makefiles

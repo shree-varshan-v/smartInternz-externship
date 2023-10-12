@@ -1,0 +1,8 @@
+prefix=/home/sv/project_ws/devel
+
+Name: mybot_motion
+Description: Description of mybot_motion
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
